@@ -1,0 +1,21 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore any OS metadata files
+desktop.ini
+
+# Node projects (you can remove if not using Node.js)
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# Secrets
+.env
+.env.*
