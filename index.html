@@ -1,18 +1,2119 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grow Pro Business Plan</title>
+    <title>Grow Pro Holdings - Investment Opportunity</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .bionova-section {
+            background-color: #f0f7ee;
+            border-left: 5px solid #4caf50;
+        }
+        .climax-section {
+            background-color: #eef5fa;
+            border-left: 5px solid #2196f3;
+        }
+        .partnership-section {
+            background-color: #f8efff;
+            border-left: 5px solid #9c27b0;
+        }
+        .investment-section {
+            background-color: #faf5ee;
+            border-left: 5px solid #ff9800;
+        }
+        .finance-section {
+            background-color: #f5f5f5;
+            border-left: 5px solid #388e3c;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #2c6e49;
+        }
+        .header-container {
+            background: linear-gradient(135deg, #1e5631 0%, #2c6e49 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: white;
+        }
+        .highlight-box {
+            background-color: #f8f8f8;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .competitive-badge {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        .team-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        .team-info {
+            padding: 1rem;
+        }
+        .kpi-card {
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .highlight-row {
+            background-color: #f0f7ee;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, #1e5631 0%, #2c6e49 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .contact-person {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 250px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-person:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Calculation pages animations (retained) */
+        .calculation-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+        .calculation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .close-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            background: #000;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 1010;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .close-button:hover {
+            background: #333;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 2rem 0;
+        }
+        .slider-container {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+        .slider {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        .slider-value {
+            font-weight: bold;
+            color: #2c6e49;
+        }
+        
+        /* Animation for calculation pages only */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .calculation-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #1e5631;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #2c6e49;
+        }
+        
+        /* Section Heading Hover Effect */
+        .section-heading {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .section-heading:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Product Block Hover Effect */
+        .product-block {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .product-block:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Navigation Buttons - PILL DESIGN */
+        .nav-buttons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 99;
+        }
+        
+        .nav-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        
+        .nav-button:hover {
+            transform: scale(1.08);
+        }
+        
+        .nav-button i {
+            margin-right: 10px;
+        }
+        
+        .nav-bionova {
+            background-color: #4caf50;
+        }
+        
+        .nav-bionova:hover {
+            background-color: #3d8b40;
+        }
+        
+        .nav-climax {
+            background-color: #2196f3;
+        }
+        
+        .nav-climax:hover {
+            background-color: #0d8aed;
+        }
+        
+        .nav-partnership {
+            background-color: #9c27b0;
+        }
+        
+        .nav-partnership:hover {
+            background-color: #7b1fa2;
+        }
+        
+        .nav-investment {
+            background-color: #ff9800;
+        }
+        
+        .nav-investment:hover {
+            background-color: #e68900;
+        }
+        
+        .nav-contact {
+            background-color: #e91e63;
+        }
+        
+        .nav-contact:hover {
+            background-color: #c2185b;
+        }
+        
+        .nav-finance {
+            background-color: #388e3c;
+        }
+        
+        .nav-finance:hover {
+            background-color: #2e7d32;
+        }
+        
+        /* Pyramid styles - UPDATED */
+        .pyramid-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .pyramid {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pyramid-text {
+            width: 50%;
+            position: relative;
+            min-height: 250px;
+        }
+        
+        .pyramid-tier {
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .pyramid-tier:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        
+        .pyramid-tier-1 {
+            background-color: #4caf50;
+            width: 90%;
+        }
+        
+        .pyramid-tier-2 {
+            background-color: #2196f3;
+            width: 75%;
+        }
+        
+        .pyramid-tier-3 {
+            background-color: #9c27b0;
+            width: 60%;
+        }
+        
+        .pyramid-tier-4 {
+            background-color: #ff9800;
+            width: 45%;
+        }
+        
+        .pyramid-detail {
+            display: none;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
+        
+        .pyramid-detail.active {
+            display: block;
+        }
+        
+        .connector-line {
+            position: absolute;
+            height: 2px;
+            background-color: #333;
+            left: -20px;
+            top: 50%;
+            width: 20px;
+        }
+        
+        /* Position the details at different vertical positions */
+        #pyramid-detail-1 {
+            top: 75%; /* Bottom tier */
+        }
+        
+        #pyramid-detail-2 {
+            top: 50%; /* Second from bottom */
+        }
+        
+        #pyramid-detail-3 {
+            top: 25%; /* Second from top */
+        }
+        
+        #pyramid-detail-4 {
+            top: 0; /* Top tier */
+        }
+        
+        /* Consumption rates section */
+        .consumption-rates {
+            font-size: 0.95em;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        
+        .consumption-rates h4 {
+            margin-bottom: 10px;
+        }
+        
+        .consumption-rates ul {
+            padding-left: 20px;
+        }
+        
+        .consumption-rates li {
+            margin-bottom: 5px;
+        }
+        
+        /* Financial Highlights Styles */
+        .financial-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            color: #388e3c;
+        }
+        
+        .metric-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .cashflow-button {
+            background-color: #388e3c;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-align: center;
+            margin: 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        
+        .cashflow-button:hover {
+            background-color: #2e7d32;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .cashflow-button i {
+            margin-right: 8px;
+        }
+        
+        .revenue-chart-container {
+            height: 400px;
+            margin: 2rem 0;
+        }
+        
+        .financial-highlights-container {
+            margin-bottom: 2rem;
+        }
+        
+        .opens-new-tab {
+            text-align: center;
+            color: #777;
+            font-size: 0.85rem;
+            margin-top: -1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900 p-8">
-    <div class="max-w-4xl mx-auto space-y-6">
-        <h1 class="text-4xl font-bold">Grow Pro Business Plan</h1>
-        <p>This is the verified working HTML version based on your original file <code>GrowPro_Definitive_Final_Plan.txt</code>. All layout, styles, and JS elements are preserved exactly.</p>
-        <p>You can now upload this to GitHub and rename it to <code>index.html</code> to make it your homepage.</p>
+<body class="bg-gray-100">
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <a href="#bionova" class="nav-button nav-bionova">
+            <i class="fas fa-leaf"></i>
+            Bionova
+        </a>
+        <a href="#climax" class="nav-button nav-climax">
+            <i class="fas fa-temperature-low"></i>
+            Cli-Max
+        </a>
+        <a href="#partnership" class="nav-button nav-partnership">
+            <i class="fas fa-handshake"></i>
+            Strategic Partnership
+        </a>
+        <a href="#financials" class="nav-button nav-finance">
+            <i class="fas fa-chart-line"></i>
+            Financials
+        </a>
+        <a href="#investment" class="nav-button nav-investment">
+            <i class="fas fa-dollar-sign"></i>
+            Investment
+        </a>
+        <a href="#contact" class="nav-button nav-contact">
+            <i class="fas fa-envelope"></i>
+            Contact
+        </a>
     </div>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <div class="container mx-auto px-4 py-8 max-w-6xl" id="top">
+        <!-- Header Section -->
+        <div class="header-container" id="header">
+            <h1 class="text-4xl font-bold mb-4">GROW PRO HOLDINGS</h1>
+            <h2 class="text-2xl mb-6">At the Forefront of African Cannabis Innovation</h2>
+            <p class="text-lg mb-4">Investment Opportunity | Q2 2024</p>
+        </div>
+
+        <!-- Executive Summary Section -->
+        <div class="section card" id="executive-summary">
+            <h2 class="text-3xl font-bold mb-6 text-center section-heading">
+                <a href="#executive-summary">EXECUTIVE SUMMARY</a>
+            </h2>
+            
+            <p class="mb-4">Grow Pro is a dynamic entrant to the AgriChem and AgriTech sectors in the Sub Saharan Africa market, with an official launch in South Africa in April 2024. Our team brings specialized expertise in the emerging cannabis industry, providing a fully integrated business ecosystem with three complementary flagship components:</p>
+            
+            <div class="flex flex-col md:flex-row gap-6 my-8">
+                <a href="#bionova" class="card flex-1 border-l-4 border-green-500 product-block">
+                    <div class="flex items-center mb-4">
+                        <div class="product-icon bg-green-100">
+                            <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-700">BIONOVA</h3>
+                    </div>
+                    <p>Premium plant nutrients with exclusive distribution rights for Sub Saharan Africa. Offering superior quality with REACH and RHP certifications at industry-leading prices.</p>
+                </a>
+                
+                <a href="#climax" class="card flex-1 border-l-4 border-blue-500 product-block">
+                    <div class="flex items-center mb-4">
+                        <div class="product-icon bg-blue-100">
+                            <i class="fas fa-temperature-low text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-700">CLI-MAX</h3>
+                    </div>
+                    <p>Precision 3-in-1 climate control systems with patented technology for heating, cooling, and dehumidification, with exclusive distribution rights for South Africa.</p>
+                </a>
+                
+                <a href="#partnership" class="card flex-1 border-l-4 border-purple-500 product-block">
+                    <div class="flex items-center mb-4">
+                        <div class="product-icon bg-purple-100">
+                            <i class="fas fa-handshake text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-purple-700">GREEN VALLEY</h3>
+                    </div>
+                    <p>Strategic partnership with an upcoming cannabis cultivator generating multiple revenue streams: equipment sales, nutrients, 10% equity stake, and per-gram royalties.</p>
+                </a>
+            </div>
+
+            <div class="highlight-box">
+                <h3 class="font-bold text-xl mb-2 text-center">Why Invest in Grow Pro?</h3>
+                
+                <!-- Updated pyramid with proper structure -->
+                <div class="pyramid-container">
+                    <div class="pyramid">
+                        <div class="pyramid-tier pyramid-tier-4" data-tier="4">
+                            Validated Business Model
+                        </div>
+                        <div class="pyramid-tier pyramid-tier-3" data-tier="3">
+                            Scalable & Capital-Efficient Growth
+                        </div>
+                        <div class="pyramid-tier pyramid-tier-2" data-tier="2">
+                            Market-Proven Cultivation Model
+                        </div>
+                        <div class="pyramid-tier pyramid-tier-1" data-tier="1">
+                            Exclusive Distribution Agreements
+                        </div>
+                    </div>
+                    
+                    <div class="pyramid-text">
+                        <div class="pyramid-detail" id="pyramid-detail-1">
+                            <div class="connector-line"></div>
+                            <p>Sole distributor for Bionova's industry-leading nutrients and Cli-Max's patented climate control systems.</p>
+                        </div>
+                        
+                        <div class="pyramid-detail" id="pyramid-detail-2">
+                            <div class="connector-line"></div>
+                            <p>Our contract growing partnerships consistently achieve 900g per m², placing us in the top 1% of global indoor yield efficiency.</p>
+                        </div>
+                        
+                        <div class="pyramid-detail" id="pyramid-detail-3">
+                            <div class="connector-line"></div>
+                            <p>Multi-vertical business model generating recurring revenue with low additional capital requirements.</p>
+                        </div>
+                        
+                        <div class="pyramid-detail" id="pyramid-detail-4">
+                            <div class="connector-line"></div>
+                            <p>Green Valley partnership demonstrates real-world implementation and multiple revenue streams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-4">Grow Pro is seeking [RX million] of investment to scale operations, expand product offerings, and accelerate market penetration across high-value verticals. This investment will enable Grow Pro to expand market share and strengthen key industry partnerships, ensuring its leadership position in the high-growth cannabis industry while expanding sales into other agricultural sectors.</p>
+        </div>
+
+        <!-- BIONOVA Section -->
+        <div class="section bionova-section" id="bionova">
+            <div class="flex items-center mb-6">
+                <div class="product-icon bg-green-100">
+                    <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-green-800 section-heading">
+                    <a href="#bionova">BIONOVA: Premium Plant Nutrients</a>
+                </h2>
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4 text-green-700">What is Bionova?</h3>
+                <p class="mb-4">Bionova is a premium plant nutrient solution with over 30 years of expertise in cannabis nutrition. As the exclusive distributor for Sub Saharan Africa, Grow Pro holds the <strong>critical product registration numbers for Bionova products</strong> that are <strong>required for legal trade</strong> and <strong>take up to two years to obtain</strong>. Without these registrations, it's impossible to legally sell these products in the region.</p>
+                
+                <div class="flex flex-col md:flex-row gap-6 my-6">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-lg mb-2 text-green-600">Superior Quality</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Uses the highest quality super concentrated minerals for optimal plant absorption</li>
+                            <li>REACH certified (European Union's regulation for chemical safety)</li>
+                            <li>RHP certified (highest standard for horticultural products)</li>
+                            <li>Food-grade minerals ensuring faster absorption and high bioavailability</li>
+                            <li>Vegan-certified formulas free from animal byproducts</li>
+                        </ul>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-lg mb-2 text-green-600">Better Performance</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Pioneered the first PK 13-14 ripening agent, setting the industry standard</li>
+                            <li>Highly concentrated formula requiring smaller quantities</li>
+                            <li>Consistent batch-to-batch reliability for predictable results</li>
+                            <li>Clean Certificates of Analysis (COAs), critical for export agreements</li>
+                            <li>Custom blending capabilities for specific crop and climate needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-6">
+                <h3 class="text-2xl font-bold mb-4 text-green-700">Unmatched Price Advantage</h3>
+                <p class="mb-4">Bionova offers a unique market position by combining premium quality with industry-leading pricing. This cost efficiency derives from the highly concentrated formula, requiring less product per liter compared to competitors:</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Brand</th>
+                                <th>Grow Cost (ZAR/L)</th>
+                                <th>Flower Cost (ZAR/L)</th>
+                                <th>Net Cost (ZAR/L)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="highlight-row font-bold">
+                                <td>BIONOVA</td>
+                                <td>0.48</td>
+                                <td>1.19</td>
+                                <td>1.67*</td>
+                            </tr>
+                            <tr>
+                                <td>MEGA</td>
+                                <td>0.90</td>
+                                <td>0.92</td>
+                                <td>1.82</td>
+                            </tr>
+                            <tr>
+                                <td>CANNA</td>
+                                <td>1.15</td>
+                                <td>1.70</td>
+                                <td>2.85</td>
+                            </tr>
+                            <tr>
+                                <td>TERRA AQUATICA</td>
+                                <td>0.77</td>
+                                <td>1.57</td>
+                                <td>2.35</td>
+                            </tr>
+                            <tr>
+                                <td>BIOBIZZ</td>
+                                <td>0.80</td>
+                                <td>4.72</td>
+                                <td>5.52</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm mt-2">*Bionova operates at a 60–100% profit margin, making it highly competitive while maintaining premium quality.</p>
+                
+                <div class="mt-4">
+                    <h4 class="font-bold mb-2">Cost Savings for Growers:</h4>
+                    <ul class="list-disc pl-6">
+                        <li>9% savings compared to MEGA</li>
+                        <li>29% savings compared to TERRA AQUATICA</li>
+                        <li>41% savings compared to CANNA</li>
+                        <li>70% savings compared to BIOBIZZ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mt-6">
+                <h3 class="text-2xl font-bold mb-4 text-green-700">Bionova Market Opportunity</h3>
+                
+                <div class="kpi-card">
+                    <span class="text-2xl font-bold text-green-700">R150 million</span>
+                    <p>Estimated annual turnover if 5% of the market is captured in South Africa alone</p>
+                </div>
+                
+                <h4 class="font-bold text-lg mb-2">Target Market Segments:</h4>
+                <div class="flex flex-col md:flex-row gap-4 mb-4">
+                    <div class="flex-1 p-4 bg-gray-50 rounded-lg">
+                        <h5 class="font-bold">SAHPRA Licensed Farms</h5>
+                        <p>~80 operational farms with ~120,000 m² cultivation area</p>
+                        <p class="mt-2"><a href="#" class="text-green-600 hover:underline" onclick="showCalculation('sahpra')">Link to calculations</a></p>
+                    </div>
+                    <div class="flex-1 p-4 bg-gray-50 rounded-lg">
+                        <h5 class="font-bold">Home Growers</h5>
+                        <p>~323,000 growers with ~646,000 m² cultivation area</p>
+                        <p class="mt-2"><a href="#" class="text-green-600 hover:underline" onclick="showCalculation('home')">Link to calculations</a></p>
+                    </div>
+                    <div class="flex-1 p-4 bg-gray-50 rounded-lg">
+                        <h5 class="font-bold">Private Cannabis Clubs</h5>
+                        <p>~500-700 clubs with ~30,000-45,000 m² cultivation area</p>
+                        <p class="mt-2"><a href="#" class="text-green-600 hover:underline" onclick="showCalculation('clubs')">Link to calculations</a></p>
+                    </div>
+                </div>
+                
+                <h4 class="font-bold text-lg mb-2">Revenue Streams:</h4>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li><span class="font-bold">Direct Sales</span> – Online platform with inventory ready for immediate fulfillment</li>
+                    <li><span class="font-bold">Bulk Contracts</span> – Large-scale farms with recurring nutrient needs</li>
+                    <li><span class="font-bold">Retail Partnerships</span> – Hydroponic stores, Private Cannabis Clubs, and Referral Agents</li>
+                </ul>
+                
+                <div class="highlight-box mt-4">
+                    <h4 class="font-bold text-lg mb-2">Expansion Opportunity:</h4>
+                    <p>Bionova has application beyond cannabis in flower, fruit, vegetable, and herb cultivation, significantly expanding the addressable market.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLI-MAX Section -->
+        <div class="section climax-section mt-8" id="climax">
+            <div class="flex items-center mb-6">
+                <div class="product-icon bg-blue-100">
+                    <i class="fas fa-temperature-low text-blue-600 text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-blue-800 section-heading">
+                    <a href="#climax">CLI-MAX: Precision Climate Control</a>
+                </h2>
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4 text-blue-700">What is Cli-Max?</h3>
+                
+                <p class="mb-4">Cli-Max is a revolutionary 3-in-1 climate control system that integrates heating, cooling, and dehumidification into a single high-efficiency unit. Developed with proprietary technology, it provides precise environmental control critical for optimal plant growth and numerous other applications requiring stable climate conditions.</p>
+                
+                <div class="flex flex-col md:flex-row gap-6 my-6">
+                    <div class="flex-1 p-4 bg-blue-50 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-snowflake text-blue-500 mr-2"></i>
+                            <h4 class="font-bold text-lg text-blue-700">Cooling</h4>
+                        </div>
+                        <p>Precision temperature reduction with inverter technology that adjusts output based on needs, maintaining optimal growing conditions.</p>
+                    </div>
+                    <div class="flex-1 p-4 bg-blue-50 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-fire text-orange-500 mr-2"></i>
+                            <h4 class="font-bold text-lg text-blue-700">Heating</h4>
+                        </div>
+                        <p>Efficient warming capability that maintains consistent temperatures during cold periods without the need for separate heating systems.</p>
+                    </div>
+                    <div class="flex-1 p-4 bg-blue-50 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-tint-slash text-blue-500 mr-2"></i>
+                            <h4 class="font-bold text-lg text-blue-700">Dehumidification</h4>
+                        </div>
+                        <p>Advanced moisture removal that prevents mold, powdery mildew, and other humidity-related issues that can devastate crops.</p>
+                    </div>
+                </div>
+                
+                <p>Unlike traditional HVAC systems that require separate units for each function, Cli-Max provides all three capabilities in one integrated system, eliminating the inefficiencies, maintenance issues, and temperature/humidity inconsistencies that plague conventional setups.</p>
+            </div>
+
+            <div class="card mt-6">
+                <h3 class="text-2xl font-bold mb-4 text-blue-700">Technical Advantages</h3>
+                
+                <ul class="space-y-4">
+                    <li class="p-3 bg-blue-50 rounded-lg">
+                        <span class="font-bold">True All-in-One Solution</span> - Cli-Max integrates heating, cooling, and dehumidification into a single high-efficiency system, eliminating inefficiencies that cause humidity spikes, mold risks, and temperature inconsistencies while ensuring uninterrupted climate stability.
+                    </li>
+                    <li class="p-3 bg-blue-50 rounded-lg">
+                        <span class="font-bold">Versatile design</span> – Optimized for indoor cultivation rooms and greenhouses, ensuring precision climate control for a wide range of growers.
+                    </li>
+                    <li class="p-3 bg-blue-50 rounded-lg">
+                        <span class="font-bold">Achieves full climate stabilization in under 15 minutes</span> (indoor), compared to industry averages of 30–60 minutes, ensuring minimal downtime and higher yield consistency.
+                    </li>
+                    <li class="p-3 bg-blue-50 rounded-lg">
+                        <span class="font-bold">Superior hysteresis control</span> – Maintains temperature fluctuations within 1°C, outperforming traditional HVAC systems that operate within a 2–5°C margin.
+                    </li>
+                    <li class="p-3 bg-blue-50 rounded-lg">
+                        <span class="font-bold">30–50% more cost-efficient</span> than alternative climate control solutions, reducing both initial investment and long-term operational costs.
+                    </li>
+                    <li class="p-3 bg-blue-50 rounded-lg">
+                        <span class="font-bold">Proprietary technology</span> – Developed in partnership with a manufacturing partner holding four patents for breakthrough climate control innovations.
+                    </li>
+                </ul>
+                
+                <div class="mt-6">
+                    <h4 class="font-bold text-lg mb-3 text-blue-700">Additional Features:</h4>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1 p-3 border border-blue-200 rounded-lg">
+                            <h5 class="font-bold mb-1">Energy Efficiency</h5>
+                            <p>Variable speed compressors (Inverter Technology) reduce power consumption by 30-50%, extending unit lifespan and lowering costs.</p>
+                        </div>
+                        <div class="flex-1 p-3 border border-blue-200 rounded-lg">
+                            <h5 class="font-bold mb-1">Integrated Systems</h5>
+                            <p>Advanced fertigation and ozone purification technology for automated nutrient delivery and enhanced air/water purification.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-6">
+                <h3 class="text-2xl font-bold mb-4 text-blue-700">Cli-Max Market Opportunity</h3>
+                
+                <div class="kpi-card">
+                    <span class="text-2xl font-bold text-blue-700">R120 Million</span>
+                    <p>Estimated annual turnover if 5% of the market is captured in Cannabis sector alone</p>
+                </div>
+                
+                <p class="my-4">Unlike nutrients and substrates, climate control solutions like Cli-Max are only relevant for indoor or high-tech greenhouse cultivation requiring precise environmental management. <strong>Based on internal industry insights, we estimate that approximately 60% of total cannabis cultivation space in South Africa is suitable for Cli-Max installations.</strong></p>
+                
+                <div class="flex flex-col md:flex-row gap-4 my-4">
+                    <div class="flex-1">
+                        <h4 class="font-bold mb-2">Cannabis Market</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>SAHPRA-Licensed Indoor & Greenhouse Facilities: 80,000-160,000m²</li>
+                            <li>Private Cannabis Club Growers: 30,000-45,000m²</li>
+                            <li>Total Controlled Climate Cultivation: ~500,000m²</li>
+                        </ul>
+                        <p class="mt-2">Addressable Market: 600,000 m² (TCCA less 40%)</p>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold mb-2">Installation Requirements</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>1 x Cli-Max Air 30,000 unit per 25m² of canopy space</li>
+                            <li>List Price per Unit: R242,000</li>
+                            <li>Commercial Price (15% off): R205,000</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4 class="font-bold text-lg mb-2">Revenue Streams:</h4>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li><span class="font-bold">Direct Sales</span> – Targeting licensed cultivation facilities, industrial applications, engineers, specialist HVAC suppliers etc.</li>
+                    <li><span class="font-bold">Installation & Custom Solutions</span> – Turnkey environmental engineering services with professional installation charges based on project scope and complexity</li>
+                    <li><span class="font-bold">Service Contracts & Maintenance</span> – Creating predictable, recurring revenue streams</li>
+                </ul>
+                
+                <div class="highlight-box mt-4">
+                    <h4 class="font-bold text-lg mb-2">Market Expansion Strategy:</h4>
+                    <p>Initial focus on cannabis cultivation with planned expansion into food processing, pharmaceutical, and data center markets for sustained long-term growth.</p>
+                    <p class="mt-2"><a href="#" class="text-blue-600 hover:underline" onclick="showCalculation('climax')">View detailed Cli-Max market calculations</a></p>
+                </div>
+            </div>
+            
+            <div class="card mt-6">
+                <h3 class="text-2xl font-bold mb-4 text-blue-700">Beyond Cannabis: Industry Applications for Cli-Max</h3>
+                
+                <p class="mb-4">While our primary focus is cannabis cultivation, Cli-Max's precision climate control technology extends into multiple industries, significantly increasing its potential market:</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Industry</th>
+                                <th>Use Case</th>
+                                <th>Cli-Max Benefits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Food Processing</td>
+                                <td>Meat, Cheese, Chocolate, Bakery, Produce</td>
+                                <td>Prevents spoilage, ensures consistency, extends shelf life</td>
+                            </tr>
+                            <tr>
+                                <td>Pharma & Healthcare</td>
+                                <td>Cleanrooms, Vaccine Storage, Hospitals</td>
+                                <td>Maintains sterility, ensures safety, prevents failure</td>
+                            </tr>
+                            <tr>
+                                <td>Cultural Preservation</td>
+                                <td>Archives, Instruments</td>
+                                <td>Prevents warping, mold and deterioration</td>
+                            </tr>
+                            <tr>
+                                <td>Industrial & Manufacturing</td>
+                                <td>Data Centers, Electronics, Printing</td>
+                                <td>Boosts reliability, print quality, and energy savings</td>
+                            </tr>
+                            <tr>
+                                <td>Agriculture</td>
+                                <td>Seed Banks, Grain Storage</td>
+                                <td>Preserves quality, prevents spoilage, prevents infestations</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Partnership Case Study Section -->
+        <div class="section partnership-section mt-8" id="partnership">
+            <div class="flex items-center mb-6">
+                <div class="product-icon bg-purple-100">
+                    <i class="fas fa-handshake text-purple-600 text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-purple-800 section-heading">
+                    <a href="#partnership">Strategic Partnership</a>
+                </h2>
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4 text-purple-700">Strategic Partnership</h3>
+                <p class="mb-4">Green Valley is an upcoming SAHPRA-licensed cannabis cultivation facility in the final stages of funding, with a total project budget of approximately R60 million. In April 2025, Grow Pro formalized a strategic partnership with Green Valley, demonstrating our ability to secure agreements with facilities in the pre-operational stage and validating our multi-revenue stream approach.</p>
+                
+                <div class="highlight-box" style="border-left-color: #9c27b0">
+                    <h4 class="font-bold text-lg mb-2">Partnership Highlights:</h4>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><span class="font-bold">10% Equity Stake</span> – Grow Pro secured a 10% equity position in Green Valley, with vesting upon achievement of the first successful harvest reaching 800g per m²</li>
+                        <li><span class="font-bold">Cultivation Support</span> – Grow Pro provides cultivation expertise, training, and ongoing monitoring through direct access to climate control systems</li>
+                        <li><span class="font-bold">Equipment & Nutrient Sales</span> – Green Valley has committed to purchasing Cli-Max climate control systems and Bionova nutrients exclusively</li>
+                        <li><span class="font-bold">Cultivation Audit Royalty</span> – Additional revenue through a per-gram royalty ranging from R0.50 to R1 for all product sold, separate from equity dividends</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mt-6">
+                <h3 class="text-2xl font-bold mb-4 text-purple-700">Projected Financial Impact</h3>
+                
+                <div class="flex flex-col md:flex-row gap-6 my-6">
+                    <div class="flex-1 p-4 bg-purple-50 rounded-lg">
+                        <h4 class="font-bold mb-2 text-purple-700">Cli-Max Sales</h4>
+                        <div class="text-center py-3">
+                            <span class="text-3xl font-bold">R5.1 Million</span>
+                            <p class="text-sm mt-1">One-time equipment sales</p>
+                        </div>
+                        <ul class="list-disc pl-6 text-sm mt-3">
+                            <li>Multiple Cli-Max units for all cultivation rooms</li>
+                            <li>Initial installation and setup</li>
+                            <li>Technical training and systems integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex-1 p-4 bg-purple-50 rounded-lg">
+                        <h4 class="font-bold mb-2 text-purple-700">Bionova Sales</h4>
+                        <div class="text-center py-3">
+                            <span class="text-3xl font-bold">±R800,000</span>
+                            <p class="text-sm mt-1">Annual recurring revenue</p>
+                        </div>
+                        <ul class="list-disc pl-6 text-sm mt-3">
+                            <li>Complete nutrient package for all growth stages</li>
+                            <li>Recurring subscription-based supply</li>
+                            <li>Customized feeding schedules and support</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex-1 p-4 bg-purple-50 rounded-lg">
+                        <h4 class="font-bold mb-2 text-purple-700">Equity & Royalties</h4>
+                        <div class="text-center py-3">
+                            <span class="text-3xl font-bold">10% + R0.50-R1</span>
+                            <p class="text-sm mt-1">Equity stake + per gram royalty</p>
+                        </div>
+                        <ul class="list-disc pl-6 text-sm mt-3">
+                            <li>Long-term capital appreciation through equity</li>
+                            <li>Ongoing royalty stream from all product sold</li>
+                            <li>Potential dividend income as business grows</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg">
+                    <h4 class="font-bold text-lg mb-2 text-center text-purple-800">Total Partnership Value</h4>
+                    <p class="text-center mb-3">The Green Valley partnership alone represents a significant revenue opportunity through multiple streams:</p>
+                    <div class="flex flex-col md:flex-row justify-around text-center">
+                        <div>
+                            <p class="font-bold text-lg">Initial Revenue</p>
+                            <p class="text-2xl font-bold text-purple-700">R5.1 Million</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">Annual Recurring</p>
+                            <p class="text-2xl font-bold text-purple-700">±R800,000</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">Long-Term Equity</p>
+                            <p class="text-2xl font-bold text-purple-700">10%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-6">
+                <h3 class="text-2xl font-bold mb-4 text-purple-700">Replicable Model for Future Growth</h3>
+                
+                <p class="mb-4">The Green Valley partnership serves as a template for Grow Pro's expansion strategy. By providing a comprehensive solution that includes products, expertise, and ongoing support, we create long-term relationships that generate multiple revenue streams from a single client.</p>
+                
+                <div class="flex flex-col md:flex-row gap-4 my-4">
+                    <div class="flex-1 p-4 bg-white border border-purple-200 rounded-lg">
+                        <h4 class="font-bold mb-2 flex items-center"><i class="fas fa-sync-alt text-purple-600 mr-2"></i> Repeatable Formula</h4>
+                        <p>Our partnership approach can be replicated with other licensed cultivators across South Africa and neighboring countries, creating a scalable growth engine.</p>
+                    </div>
+                    <div class="flex-1 p-4 bg-white border border-purple-200 rounded-lg">
+                        <h4 class="font-bold mb-2 flex items-center"><i class="fas fa-chart-line text-purple-600 mr-2"></i> Growth Catalyst</h4>
+                        <p>Each partnership creates a showcase facility that demonstrates our products' effectiveness, driving organic sales growth through word-of-mouth.</p>
+                    </div>
+                    <div class="flex-1 p-4 bg-white border border-purple-200 rounded-lg">
+                        <h4 class="font-bold mb-2 flex items-center"><i class="fas fa-shield-alt text-purple-600 mr-2"></i> Risk Mitigation</h4>
+                        <p>The multi-revenue model ensures that even if one stream underperforms, the overall relationship remains profitable and valuable.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box mt-4" style="border-left-color: #9c27b0">
+                    <h4 class="font-bold text-lg mb-2">Strategic Implications:</h4>
+                    <p>This partnership validates our business model by demonstrating:</p>
+                    <ul class="list-disc pl-6 mt-2">
+                        <li>Market demand for our integrated product and service offerings</li>
+                        <li>Our ability to secure agreements with facilities in the pre-operational stage</li>
+                        <li>Ability to generate significant revenue from multiple streams within a single relationship</li>
+                        <li>Creation of both immediate cash flow and long-term equity value</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINANCIAL HIGHLIGHTS Section (NEW) -->
+        <div class="section finance-section mt-8" id="financials">
+            <div class="flex items-center mb-6">
+                <div class="product-icon bg-green-100">
+                    <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-green-800 section-heading">
+                    <a href="#financials">FINANCIAL HIGHLIGHTS</a>
+                </h2>
+            </div>
+
+            <div class="card">
+                <p class="mb-4">Our comprehensive financial projections demonstrate a clear path to profitability with strong growth in multiple revenue streams. The initial investment rapidly accelerates our ability to capture substantial market share across our core product lines.</p>
+                <p class="text-sm text-gray-600 mb-4">Financial projections updated: April 2025</p>
+                
+                <div class="financial-metrics">
+                    <div class="metric-card">
+                        <div class="flex items-center justify-center mb-2">
+                            <i class="fas fa-chart-line text-green-600 mr-2"></i>
+                            <h3 class="font-bold">Projected Revenue</h3>
+                        </div>
+                        <div class="metric-value">R5.5 million</div>
+                        <p class="metric-description">Year 1 Total</p>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="flex items-center justify-center mb-2">
+                            <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
+                            <h3 class="font-bold">Monthly Revenue</h3>
+                        </div>
+                        <div class="metric-value">R457,700</div>
+                        <p class="metric-description">By End of Year 1</p>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="flex items-center justify-center mb-2">
+                            <i class="fas fa-percentage text-purple-600 mr-2"></i>
+                            <h3 class="font-bold">Gross Profit Margin</h3>
+                        </div>
+                        <div class="metric-value">55%</div>
+                        <p class="metric-description">Blended Average</p>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="flex items-center justify-center mb-2">
+                            <i class="fas fa-balance-scale text-orange-600 mr-2"></i>
+                            <h3 class="font-bold">Breakeven</h3>
+                        </div>
+                        <div class="metric-value">Month 9</div>
+                        <p class="metric-description">Operational Profitability</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4">Projected Revenue Growth</h3>
+                    <div class="revenue-chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <h3 class="text-xl font-bold mb-4">Revenue Composition</h3>
+                    <div style="width: 60%; margin: 0 auto; display: block; position: relative;">
+                        <canvas id="revenueCompositionChart"></canvas>
+                    </div>
+                </div>
+                
+                <a href="https://page.genspark.site/page/toolu_018LePhycngVgfiwQb3sPfR9/GrowPro_Detailed_Cash_Flow.html" target="_blank" class="cashflow-button">
+                    <i class="fas fa-table"></i> View Detailed Cash Flow
+                </a>
+                <p class="opens-new-tab">Opens in a new tab</p>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="section card mt-8" id="team">
+            <h2 class="text-3xl font-bold mb-6 text-center section-heading">
+                <a href="#team">LEADERSHIP TEAM</a>
+            </h2>
+            
+            <p class="mb-6">Our team is Grow Pro's most valuable asset. We've worked together through challenging circumstances, developing the resilience, adaptability, and problem-solving skills that define us. With diverse expertise in-house, we minimize outsourcing, allowing us to operate efficiently and respond quickly to market demands.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="team-card">
+                    <div class="team-info">
+                        <h3 class="text-xl font-bold">Jason Tomlins</h3>
+                        <p class="text-gray-600 font-bold">Founder & CEO</p>
+                        <p class="mt-2">A strategic entrepreneur with 25+ years of experience in business leadership. Founded and grew ClockworkVFX (international animation studio) and Crab Creek Aquaponics (one of South Africa's largest commercial aquaponic farms). Expertise in cannabis cultivation, business development, and market expansion.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-info">
+                        <h3 class="text-xl font-bold">Doug Hardman</h3>
+                        <p class="text-gray-600 font-bold">Founder Director & Market Expansion</p>
+                        <p class="mt-2">Seasoned investment professional with extensive experience in real estate capital markets and private equity across the UK and Europe. Expertise in financial structuring and cross-border transactions, instrumental in securing European offtake agreements.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-info">
+                        <h3 class="text-xl font-bold">Jonathan Zeederberg</h3>
+                        <p class="text-gray-600 font-bold">Head of Cultivation</p>
+                        <p class="mt-2">Cannabis cultivation specialist with 20+ years of experience in indoor, greenhouse, and organic horticulture. Deep knowledge of plant physiology, genetics, and extraction processes, ensuring industry-leading cultivation efficiencies.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-info">
+                        <h3 class="text-xl font-bold">Brad Quayle</h3>
+                        <p class="text-gray-600 font-bold">Board Member (M&A, Financial Strategy)</p>
+                        <p class="mt-2">20+ years experience in M&A, restructuring, and financial advisory. Held senior positions at Deloitte Capital Finance, PwC, and advisory roles in high-growth acquisitions and corporate restructuring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investment Opportunity Section -->
+        <div class="section investment-section mt-8" id="investment">
+            <h2 class="text-3xl font-bold mb-6 text-center text-orange-800 section-heading">
+                <a href="#investment">INVESTMENT OPPORTUNITY</a>
+            </h2>
+            
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4 text-orange-700">Investment Requirements</h3>
+                
+                <div class="kpi-card bg-orange-50 border-orange-500">
+                    <span class="text-2xl font-bold text-orange-700">R[X] million</span>
+                    <p>Seeking investment to scale operations, expand product offerings, and accelerate market penetration</p>
+                </div>
+                
+                <h4 class="font-bold text-lg mt-4 mb-2">Projected Fund Allocation:</h4>
+                <div class="flex flex-col md:flex-row gap-4 mb-6">
+                    <div class="flex-1 p-3 border border-orange-200 rounded-lg">
+                        <h5 class="font-bold text-orange-700">Marketing & Paid Advertising</h5>
+                        <p class="text-2xl font-bold text-center my-2">[%]</p>
+                        <ul class="list-disc pl-6 text-sm">
+                            <li>Digital marketing campaigns</li>
+                            <li>Industry events & exhibitions</li>
+                            <li>Commercial trials & demos</li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 p-3 border border-orange-200 rounded-lg">
+                        <h5 class="font-bold text-orange-700">Product Inventory & Trials</h5>
+                        <p class="text-2xl font-bold text-center my-2">[%]</p>
+                        <ul class="list-disc pl-6 text-sm">
+                            <li>Bionova stock expansion</li>
+                            <li>Cli-Max demonstration units</li>
+                            <li>Regional warehousing</li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 p-3 border border-orange-200 rounded-lg">
+                        <h5 class="font-bold text-orange-700">Team Expansion & Operations</h5>
+                        <p class="text-2xl font-bold text-center my-2">[%]</p>
+                        <ul class="list-disc pl-6 text-sm">
+                            <li>Sales team growth</li>
+                            <li>Technical support staff</li>
+                            <li>Operational infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4 class="font-bold text-lg mb-2">Investment Impact & ROI:</h4>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Accelerate revenue by [X%] over the next [X] years through increased Bionova & Cli-Max sales and expanded contract growing operations</li>
+                    <li>Boost repeat purchase volume by expanding trial stock, paid advertising, and direct sales efforts</li>
+                    <li>Reduce operational risk by funding inventory reserves and regional warehousing</li>
+                    <li>Projected ROI: X% over X years</li>
+                </ul>
+                
+                <h4 class="font-bold text-lg mt-4 mb-2">Exit Pathways:</h4>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1 p-3 bg-orange-50 rounded-lg">
+                        <h5 class="font-bold">Strategic Acquisition</h5>
+                        <p>Grow Pro's exclusive supplier & distribution model makes it an attractive buyout target for multinational nutrient companies, climate control manufacturers, and global cannabis distributors.</p>
+                    </div>
+                    <div class="flex-1 p-3 bg-orange-50 rounded-lg">
+                        <h5 class="font-bold">Revenue Share Model</h5>
+                        <p>Investors can benefit from high-margin recurring sales across multiple revenue streams.</p>
+                    </div>
+                    <div class="flex-1 p-3 bg-orange-50 rounded-lg">
+                        <h5 class="font-bold">Market Expansion & Equity Buyback</h5>
+                        <p>Grow Pro's rapid growth offers opportunities for early liquidity through structured buybacks or secondary market sales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion Section -->
+        <div class="section card mt-8" id="conclusion">
+            <h2 class="text-3xl font-bold mb-6 text-center section-heading">
+                <a href="#conclusion">CONCLUSION</a>
+            </h2>
+            
+            <p class="mb-4">Grow Pro stands out in an industry often plagued by narrow-focus players and limited global reach. By uniting premium nutrient technology, climate innovations, expert-driven cultivation partnerships, and robust export channels, we've built a vertically integrated, revenue-generating ecosystem ready for the next level of scale.</p>
+            
+            <div class="flex flex-col md:flex-row gap-6 my-6">
+                <div class="flex-1 text-center p-4 bg-green-50 rounded-lg">
+                    <i class="fas fa-leaf text-green-600 text-3xl mb-3"></i>
+                    <h3 class="font-bold text-xl mb-2">Bionova</h3>
+                    <p>Premium nutrients at industry-leading prices with REACH and RHP certifications.</p>
+                </div>
+                <div class="flex-1 text-center p-4 bg-blue-50 rounded-lg">
+                    <i class="fas fa-temperature-low text-blue-600 text-3xl mb-3"></i>
+                    <h3 class="font-bold text-xl mb-2">Cli-Max</h3>
+                    <p>Revolutionary 3-in-1 climate control with applications across multiple industries.</p>
+                </div>
+                <div class="flex-1 text-center p-4 bg-purple-50 rounded-lg">
+                    <i class="fas fa-handshake text-purple-600 text-3xl mb-3"></i>
+                    <h3 class="font-bold text-xl mb-2">Strategic Partnerships</h3>
+                    <p>Validated business model with multiple revenue streams from each relationship.</p>
+                </div>
+                <div class="flex-1 text-center p-4 bg-yellow-50 rounded-lg">
+                    <i class="fas fa-seedling text-yellow-600 text-3xl mb-3"></i>
+                    <h3 class="font-bold text-xl mb-2">Expert Team</h3>
+                    <p>Seasoned entrepreneurs with proven track records in cultivation and business scaling.</p>
+                </div>
+            </div>
+            
+            <p class="text-center font-bold text-xl mt-6">Join us and capitalize on the rising global demand for compliant, high-quality cannabis. With proven traction, exclusive partnerships, and a multi-channel revenue engine, Grow Pro is your gateway to high-margin, sustainable growth in the emerging cannabis economy.</p>
+            
+            <!-- Updated Contact Section with both founders -->
+            <div class="contact-card mt-8" id="contact">
+                <h3 class="text-xl font-bold mb-4">For further information, please contact:</h3>
+                <div class="contact-info">
+                    <div class="contact-person">
+                        <h4 class="font-bold">Jason Tomlins</h4>
+                        <p class="text-sm">Founder & Director</p>
+                        <p class="mt-2"><a href="mailto:jason@growpro.co.za" class="text-white hover:text-gray-200">jason@growpro.co.za</a></p>
+                        <p>+27 (0)XX XXX XXXX</p>
+                    </div>
+                    <div class="contact-person">
+                        <h4 class="font-bold">Douglas Hardman</h4>
+                        <p class="text-sm">Founder & Director</p>
+                        <p class="mt-2"><a href="mailto:doug@growpro.co.za" class="text-white hover:text-gray-200">doug@growpro.co.za</a></p>
+                        <p>+27 (0)XX XXX XXXX</p>
+                    </div>
+                </div>
+                <p class="text-sm mt-6">Grow Pro Holdings – Private & Confidential</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculation pop-up pages -->
+    <!-- SAHPRA Licensed Farms Calculation -->
+    <div id="sahpra-calculation" class="calculation-page">
+        <div class="calculation-container">
+            <div class="close-button" onclick="hideCalculation('sahpra')">×</div>
+            <h2 class="text-2xl font-bold mb-6 text-green-800">SAHPRA Licensed Farms Market Calculation</h2>
+            
+            <div class="card">
+                <h3 class="text-xl font-bold mb-4">Key Market Parameters</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="mb-2"><span class="font-bold">Estimated Number of Farms:</span> <input type="range" min="50" max="300" value="80" class="slider" id="farmSlider"> <span id="farmValue" class="slider-value">80</span></p>
+                        <p class="mb-2"><span class="font-bold">Average Cultivation Area:</span> Assumed at 2,500 m² per farm</p>
+                        <p class="mb-4"><span class="font-bold">Total Cultivation Area:</span></p>
+                        <p><span id="farmCalc">80</span> farms × 2,500 m² = <span id="farmTotal">200,000</span> m²</p>
+                        
+                        <div class="consumption-rates">
+                            <h4 class="font-bold">Consumption Rates & Cost Assumptions</h4>
+                            <ul class="list-disc pl-4">
+                                <li>Nutrient Consumption: 378 liters/m² per grow cycle at an average cost of R2.90 per liter</li>
+                                <li>Cost per m² per Cycle: 378 L × R2.90 = R1,096.20</li>
+                                <li>Substrate Consumption: 12 liters/m² per grow cycle at an estimated cost of R7 per liter</li>
+                                <li>Cost per m² per Cycle: 12 L × R7 = R84</li>
+                                <li>Combined Cost per m² per Cycle: R1,096.20 + R84 = R1,180.20 (rounded to ~R1,200 for simplicity)</li>
+                                <li>Grow Cycles per Year: 3 cycles</li>
+                                <li>Annual Cost per m²: 3 × R1,200 = R3,600</li>
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <p class="font-bold">Total Addressable Market:</p>
+                                <p><span id="sahpraTAM">200,000</span> m² × R3,600 = R<span id="sahpraTAMValue">720</span> million annually</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slider-container mt-6">
+                            <h4 class="font-bold">Market Penetration Simulator</h4>
+                            <p>Adjust the slider to see potential revenue based on market share:</p>
+                            <input type="range" min="5" max="100" value="5" class="slider" id="sahpraSlider">
+                            <p>Market Penetration: <span id="sahpraValue" class="slider-value">5%</span></p>
+                            <p>Potential Annual Revenue: <span id="sahpraRevenue" class="text-xl font-bold text-green-700">R36 million</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Growers Calculation -->
+    <div id="home-calculation" class="calculation-page">
+        <div class="calculation-container">
+            <div class="close-button" onclick="hideCalculation('home')">×</div>
+            <h2 class="text-2xl font-bold mb-6 text-green-800">Home Growers Market Calculation</h2>
+            
+            <div class="card">
+                <h3 class="text-xl font-bold mb-4">Key Market Parameters</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="mb-2"><span class="font-bold">Estimated Number of Home Growers:</span> <input type="range" min="100000" max="500000" step="50000" value="300000" class="slider" id="homeGrowerSlider"> <span id="homeGrowerValue" class="slider-value">300,000</span></p>
+                        <p class="mb-2"><span class="font-bold">Average Cultivation Area:</span> Approximately 2 m² per grow (4 plants per m²)</p>
+                        <p class="mb-2"><span class="font-bold">Total Home Grow Area:</span> <span id="homeCalc">300,000</span> × 2 m² = <span id="homeTotal">600,000</span> m²</p>
+                        
+                        <div class="consumption-rates">
+                            <h4 class="font-bold">Consumption Rates & Cost Assumptions</h4>
+                            <ul class="list-disc pl-4">
+                                <li>Nutrient Consumption: 378 liters/m² per grow cycle at an average cost of R2.90 per liter</li>
+                                <li>Cost per m² per Cycle: 378 L × R2.90 = R1,096.20</li>
+                                <li>Substrate Consumption: 12 liters/m² per grow cycle at an estimated cost of R7 per liter</li>
+                                <li>Cost per m² per Cycle: 12 L × R7 = R84</li>
+                                <li>Combined Cost per m² per Cycle: R1,096.20 + R84 = R1,180.20 (rounded to ~R1,200 for simplicity)</li>
+                                <li>Grow Cycles per Year: 3 cycles</li>
+                                <li>Annual Cost per m²: 3 × R1,200 = R3,600</li>
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <p class="font-bold">Total Addressable Market:</p>
+                                <p><span id="homeTAM">600,000</span> m² × R3,600 = R<span id="homeTAMValue">2160</span> million annually</p>
+                            </div>
+                            
+                            <p class="text-sm mt-4">*South Africa has an estimated 5 million cannabis users, representing 7.8% of the total population (UNDOC). According to New Frontier Data (2021), approximately 6% of cannabis consumers grow their own flower, with a population of 69m, this equates to 323,000 home growers.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slider-container mt-6">
+                            <h4 class="font-bold">Market Penetration Simulator</h4>
+                            <p>Adjust the slider to see potential revenue based on market share:</p>
+                            <input type="range" min="1" max="100" value="5" class="slider" id="homeSlider">
+                            <p>Market Penetration: <span id="homeValue" class="slider-value">5%</span></p>
+                            <p>Potential Annual Revenue: <span id="homeRevenue" class="text-xl font-bold text-green-700">R108 million</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Private Cannabis Clubs Calculation -->
+    <div id="clubs-calculation" class="calculation-page">
+        <div class="calculation-container">
+            <div class="close-button" onclick="hideCalculation('clubs')">×</div>
+            <h2 class="text-2xl font-bold mb-6 text-green-800">Private Cannabis Clubs Market Calculation</h2>
+            
+            <div class="card">
+                <h3 class="text-xl font-bold mb-4">Key Market Parameters</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="mb-2"><span class="font-bold">Estimated Number of Clubs:</span> <input type="range" min="500" max="2000" value="700" class="slider" id="clubsCountSlider"> <span id="clubsCountValue" class="slider-value">700</span></p>
+                        <p class="mb-2"><span class="font-bold">Assumed Cultivation Area per Club:</span> ~60 m² (4 plants per member = 1 m²)</p>
+                        <p class="mb-4"><span class="font-bold">Total Club Area:</span></p>
+                        <p><span id="clubsCalc">700</span> clubs × 60 m² = <span id="clubsTotal">42,000</span> m²</p>
+                        
+                        <div class="consumption-rates">
+                            <h4 class="font-bold">Consumption Rates & Cost Assumptions</h4>
+                            <ul class="list-disc pl-4">
+                                <li>Nutrient Consumption: 378 liters/m² per grow cycle at an average cost of R2.90 per liter</li>
+                                <li>Cost per m² per Cycle: 378 L × R2.90 = R1,096.20</li>
+                                <li>Substrate Consumption: 12 liters/m² per grow cycle at an estimated cost of R7 per liter</li>
+                                <li>Cost per m² per Cycle: 12 L × R7 = R84</li>
+                                <li>Combined Cost per m² per Cycle: R1,096.20 + R84 = R1,180.20 (rounded to ~R1,200 for simplicity)</li>
+                                <li>Grow Cycles per Year: 3 cycles</li>
+                                <li>Annual Cost per m²: 3 × R1,200 = R3,600</li>
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <p class="font-bold">Total Addressable Market:</p>
+                                <p><span id="clubsTAM">42,000</span> m² × R3,600 = R<span id="clubsTAMValue">151.2</span> million annually</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slider-container mt-6">
+                            <h4 class="font-bold">Market Penetration Simulator</h4>
+                            <p>Adjust the slider to see potential revenue based on market share:</p>
+                            <input type="range" min="5" max="100" value="5" class="slider" id="clubsSlider">
+                            <p>Market Penetration: <span id="clubsValue" class="slider-value">5%</span></p>
+                            <p>Potential Annual Revenue: <span id="clubsRevenue" class="text-xl font-bold text-green-700">R7.6 million</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cli-Max Market Calculation -->
+    <div id="climax-calculation" class="calculation-page">
+        <div class="calculation-container">
+            <div class="close-button" onclick="hideCalculation('climax')">×</div>
+            <h2 class="text-2xl font-bold mb-6 text-blue-800">Cli-Max Market Opportunity Calculation</h2>
+            
+            <div class="card">
+                <h3 class="text-xl font-bold mb-4">Market Segmentation</h3>
+                
+                <p class="mb-4">Unlike nutrients and substrates, climate control solutions like Cli-Max are only relevant for indoor or high-tech greenhouse cultivation requiring precise environmental management. Based on internal industry insights, we estimate that approximately 60% of total cannabis cultivation space in South Africa is suitable for Cli-Max installations.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold mb-4">Total Cannabis Cultivation Area (TCCA):</h4>
+                        <p class="mb-2"><input type="range" min="500000" max="1000000" step="100000" value="500000" class="slider" id="climaxAreaSlider"> <span id="climaxAreaValue" class="slider-value">500,000</span> m²</p>
+                        
+                        <div class="mt-4">
+                            <p><span class="font-bold">Total Cannabis Cultivation Area:</span> <span id="climaxTCCA">500,000</span> m²</p>
+                            <p><span class="font-bold">Addressable Market (60%):</span> <span id="climaxAddressable">300,000</span> m² (<span id="climaxTCCARef">500,000</span> m² less 40%)</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-bold mb-2">Market Capture Percentage:</h4>
+                            <input type="range" min="0" max="100" value="5" class="slider" id="climaxCaptureSlider">
+                            <p>Market Capture: <span id="climaxCaptureValue" class="slider-value">5%</span></p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p class="font-bold">Installation Requirement:</p>
+                            <p><span id="climaxCapture">15,000</span> m² ÷ 25 m² per unit = <span id="climaxUnits">600</span> units</p>
+                            
+                            <div class="mt-4">
+                                <p class="font-bold">Total Potential Revenue:</p>
+                                <p><span id="climaxTotalUnits">600</span> units × R205,000 = R<span id="climaxTotalRevenue">123.0</span> million</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Installation & Revenue Estimates:</h4>
+                        <ul class="list-disc pl-4 text-sm">
+                            <li>1 x Cli-Max Air 30,000 unit per 25m² of canopy space</li>
+                            <li>List Price per Unit: R242,000</li>
+                            <li>Commercial Price (15% Off): R205,000</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variable to store scroll position
+        let lastScrollPosition = 0;
+        
+        // Function to check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Add animation classes when elements come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize charts and sliders
+            initializeCharts();
+            initializeCalculationSliders();
+            initializePyramid();
+            initializeFinancialCharts();
+            
+            // Back to Top button functionality
+            window.addEventListener('scroll', toggleBackToTop);
+            document.getElementById('backToTop').addEventListener('click', scrollToTop);
+        });
+        
+        // Initialize pyramid hover effects
+        function initializePyramid() {
+            const pyramidTiers = document.querySelectorAll('.pyramid-tier');
+            const pyramidDetails = document.querySelectorAll('.pyramid-detail');
+            
+            // Set first tier as active by default
+            document.getElementById('pyramid-detail-1').classList.add('active');
+            
+            pyramidTiers.forEach(tier => {
+                tier.addEventListener('mouseenter', function() {
+                    const tierId = this.getAttribute('data-tier');
+                    
+                    // Hide all details
+                    pyramidDetails.forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    
+                    // Show selected detail
+                    document.getElementById('pyramid-detail-' + tierId).classList.add('active');
+                    
+                    // Dim other tiers
+                    pyramidTiers.forEach(t => {
+                        if (t !== this) {
+                            t.style.opacity = '0.6';
+                        } else {
+                            t.style.opacity = '1';
+                        }
+                    });
+                });
+            });
+            
+            // Reset opacity when mouse leaves the pyramid
+            const pyramidContainer = document.querySelector('.pyramid-container');
+            pyramidContainer.addEventListener('mouseleave', function() {
+                pyramidTiers.forEach(tier => {
+                    tier.style.opacity = '1';
+                });
+            });
+        }
+        
+        // Back to Top button functions
+        function toggleBackToTop() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        }
+        
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Functions to show/hide calculation pages
+        function showCalculation(type) {
+            // Store current scroll position before opening modal
+            lastScrollPosition = window.scrollY;
+            document.getElementById(type + '-calculation').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideCalculation(type) {
+            document.getElementById(type + '-calculation').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Restore scroll position when modal is closed
+            setTimeout(() => {
+                window.scrollTo(0, lastScrollPosition);
+            }, 10);
+        }
+
+        // Initialize financial charts
+        function initializeFinancialCharts() {
+            // Revenue growth chart - Updated with new data
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Monthly Revenue (R)',
+                        data: [73776, 37657, 116000, 0, 270000, 0, 170600, 349600, 584600, 1060200, 577700, 457700],
+                        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                        borderColor: 'rgba(76, 175, 80, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Revenue (R)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return 'R' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Revenue: R' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Revenue composition chart
+            const compositionCtx = document.getElementById('revenueCompositionChart').getContext('2d');
+            new Chart(compositionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Bionova Nutrients', 'Cli-Max Systems', 'Contract Growing', 'Royalties'],
+                    datasets: [{
+                        data: [45, 40, 10, 5],
+                        backgroundColor: [
+                            'rgba(76, 175, 80, 0.8)',
+                            'rgba(33, 150, 243, 0.8)',
+                            'rgba(156, 39, 176, 0.8)',
+                            'rgba(255, 152, 0, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(76, 175, 80, 1)',
+                            'rgba(33, 150, 243, 1)',
+                            'rgba(156, 39, 176, 1)',
+                            'rgba(255, 152, 0, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to initialize charts
+        function initializeCharts() {
+            // SAHPRA Licensed Farms Chart
+            const sahpraCtx = document.getElementById('sahpraChart');
+            if (sahpraCtx) {
+                window.sahpraChart = new Chart(sahpraCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Base Value', 'Optimistic (+30%)'],
+                        datasets: [{
+                            label: 'Total Cultivation Area (m²)',
+                            data: [200000, 260000],
+                            backgroundColor: [
+                                'rgba(76, 175, 80, 0.6)',
+                                'rgba(76, 175, 80, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(76, 175, 80, 1)',
+                                'rgba(76, 175, 80, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Cultivation Area (m²)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Home Growers Chart
+            const homeCtx = document.getElementById('homeChart');
+            if (homeCtx) {
+                window.homeChart = new Chart(homeCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Base Value', 'Optimistic (+30%)'],
+                        datasets: [{
+                            label: 'Total Cultivation Area (m²)',
+                            data: [600000, 780000],
+                            backgroundColor: [
+                                'rgba(76, 175, 80, 0.6)',
+                                'rgba(76, 175, 80, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(76, 175, 80, 1)',
+                                'rgba(76, 175, 80, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Cultivation Area (m²)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Private Cannabis Clubs Chart
+            const clubsCtx = document.getElementById('clubsChart');
+            if (clubsCtx) {
+                window.clubsChart = new Chart(clubsCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Base Value', 'Optimistic (+30%)'],
+                        datasets: [{
+                            label: 'Total Cultivation Area (m²)',
+                            data: [42000, 54600],
+                            backgroundColor: [
+                                'rgba(76, 175, 80, 0.6)',
+                                'rgba(76, 175, 80, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(76, 175, 80, 1)',
+                                'rgba(76, 175, 80, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Cultivation Area (m²)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Function to initialize calculation sliders
+        function initializeCalculationSliders() {
+            // SAHPRA farms slider
+            const farmSlider = document.getElementById('farmSlider');
+            const farmValue = document.getElementById('farmValue');
+            const farmCalc = document.getElementById('farmCalc');
+            const farmTotal = document.getElementById('farmTotal');
+            const sahpraTAM = document.getElementById('sahpraTAM');
+            const sahpraTAMValue = document.getElementById('sahpraTAMValue');
+            
+            if (farmSlider) {
+                farmSlider.oninput = function() {
+                    const farms = this.value;
+                    farmValue.textContent = farms;
+                    farmCalc.textContent = farms;
+                    const area = farms * 2500;
+                    farmTotal.textContent = area.toLocaleString();
+                    sahpraTAM.textContent = area.toLocaleString();
+                    const tam = (area * 3600 / 1000000);
+                    sahpraTAMValue.textContent = tam.toFixed(0);
+                };
+            }
+
+            // SAHPRA Market Penetration slider
+            const sahpraSlider = document.getElementById('sahpraSlider');
+            const sahpraValue = document.getElementById('sahpraValue');
+            const sahpraRevenue = document.getElementById('sahpraRevenue');
+            
+            if (sahpraSlider) {
+                sahpraSlider.oninput = function() {
+                    const penetration = this.value;
+                    sahpraValue.textContent = penetration + '%';
+                    const area = parseInt(farmTotal.textContent.replace(/,/g, ''));
+                    const total = area * 3600 / 1000000;
+                    const revenue = (total * (penetration / 100));
+                    
+                    // Format based on size and ensure 100% matches TAM exactly
+                    if (penetration == 100) {
+                        const tamValue = parseInt(sahpraTAMValue.textContent);
+                        if (tamValue >= 1000) {
+                            sahpraRevenue.textContent = 'R' + (tamValue / 1000).toFixed(2) + ' billion';
+                        } else {
+                            sahpraRevenue.textContent = 'R' + tamValue + ' million';
+                        }
+                    } else {
+                        if (revenue >= 1000) {
+                            sahpraRevenue.textContent = 'R' + (revenue / 1000).toFixed(2) + ' billion';
+                        } else {
+                            sahpraRevenue.textContent = 'R' + revenue.toFixed(0) + ' million';
+                        }
+                    }
+                };
+            }
+
+            // Home growers slider
+            const homeGrowerSlider = document.getElementById('homeGrowerSlider');
+            const homeGrowerValue = document.getElementById('homeGrowerValue');
+            const homeCalc = document.getElementById('homeCalc');
+            const homeTotal = document.getElementById('homeTotal');
+            const homeTAM = document.getElementById('homeTAM');
+            const homeTAMValue = document.getElementById('homeTAMValue');
+            
+            if (homeGrowerSlider) {
+                homeGrowerSlider.oninput = function() {
+                    const growers = parseInt(this.value);
+                    homeGrowerValue.textContent = growers.toLocaleString();
+                    homeCalc.textContent = growers.toLocaleString();
+                    const area = growers * 2;
+                    homeTotal.textContent = area.toLocaleString();
+                    homeTAM.textContent = area.toLocaleString();
+                    const tam = (area * 3600 / 1000000);
+                    homeTAMValue.textContent = tam.toFixed(0);
+                };
+            }
+
+            // Home Growers Market Penetration slider
+            const homeSlider = document.getElementById('homeSlider');
+            const homeValue = document.getElementById('homeValue');
+            const homeRevenue = document.getElementById('homeRevenue');
+            
+            if (homeSlider) {
+                homeSlider.oninput = function() {
+                    const penetration = this.value;
+                    homeValue.textContent = penetration + '%';
+                    const area = parseInt(homeTotal.textContent.replace(/,/g, ''));
+                    const total = area * 3600 / 1000000;
+                    const revenue = (total * (penetration / 100));
+                    
+                    // Format based on size and ensure 100% matches TAM exactly
+                    if (penetration == 100) {
+                        const tamValue = parseInt(homeTAMValue.textContent);
+                        if (tamValue >= 1000) {
+                            homeRevenue.textContent = 'R' + (tamValue / 1000).toFixed(2) + ' billion';
+                        } else {
+                            homeRevenue.textContent = 'R' + tamValue + ' million';
+                        }
+                    } else {
+                        if (revenue >= 1000) {
+                            homeRevenue.textContent = 'R' + (revenue / 1000).toFixed(2) + ' billion';
+                        } else {
+                            homeRevenue.textContent = 'R' + revenue.toFixed(0) + ' million';
+                        }
+                    }
+                };
+            }
+
+            // Cannabis clubs count slider
+            const clubsCountSlider = document.getElementById('clubsCountSlider');
+            const clubsCountValue = document.getElementById('clubsCountValue');
+            const clubsCalc = document.getElementById('clubsCalc');
+            const clubsTotal = document.getElementById('clubsTotal');
+            const clubsTAM = document.getElementById('clubsTAM');
+            const clubsTAMValue = document.getElementById('clubsTAMValue');
+            
+            if (clubsCountSlider) {
+                clubsCountSlider.oninput = function() {
+                    const clubs = this.value;
+                    clubsCountValue.textContent = clubs;
+                    clubsCalc.textContent = clubs;
+                    const area = clubs * 60;
+                    clubsTotal.textContent = area.toLocaleString();
+                    clubsTAM.textContent = area.toLocaleString();
+                    const tam = (area * 3600 / 1000000);
+                    clubsTAMValue.textContent = tam.toFixed(1);
+                };
+            }
+
+            // Cannabis clubs Market Penetration slider
+            const clubsSlider = document.getElementById('clubsSlider');
+            const clubsValue = document.getElementById('clubsValue');
+            const clubsRevenue = document.getElementById('clubsRevenue');
+            
+            if (clubsSlider) {
+                clubsSlider.oninput = function() {
+                    const penetration = this.value;
+                    clubsValue.textContent = penetration + '%';
+                    const area = parseInt(clubsTotal.textContent.replace(/,/g, ''));
+                    const total = area * 3600 / 1000000;
+                    const revenue = (total * (penetration / 100));
+                    
+                    // Format based on size and ensure 100% matches TAM exactly
+                    if (penetration == 100) {
+                        const tamValue = parseFloat(clubsTAMValue.textContent);
+                        if (tamValue >= 1000) {
+                            clubsRevenue.textContent = 'R' + (tamValue / 1000).toFixed(2) + ' billion';
+                        } else {
+                            clubsRevenue.textContent = 'R' + tamValue + ' million';
+                        }
+                    } else {
+                        if (revenue >= 1000) {
+                            clubsRevenue.textContent = 'R' + (revenue / 1000).toFixed(2) + ' billion';
+                        } else {
+                            clubsRevenue.textContent = 'R' + revenue.toFixed(1) + ' million';
+                        }
+                    }
+                };
+            }
+
+            // Cli-Max area slider
+            const climaxAreaSlider = document.getElementById('climaxAreaSlider');
+            const climaxAreaValue = document.getElementById('climaxAreaValue');
+            const climaxTCCA = document.getElementById('climaxTCCA');
+            const climaxTCCARef = document.getElementById('climaxTCCARef');
+            const climaxAddressable = document.getElementById('climaxAddressable');
+            
+            // Cli-Max capture slider
+            const climaxCaptureSlider = document.getElementById('climaxCaptureSlider');
+            const climaxCaptureValue = document.getElementById('climaxCaptureValue');
+            const climaxCapture = document.getElementById('climaxCapture');
+            const climaxUnits = document.getElementById('climaxUnits');
+            const climaxTotalUnits = document.getElementById('climaxTotalUnits');
+            const climaxTotalRevenue = document.getElementById('climaxTotalRevenue');
+            
+            // Update values when TCCA slider changes
+            if (climaxAreaSlider) {
+                climaxAreaSlider.oninput = function() {
+                    const tcca = parseInt(this.value);
+                    climaxAreaValue.textContent = tcca.toLocaleString();
+                    climaxTCCA.textContent = tcca.toLocaleString();
+                    climaxTCCARef.textContent = tcca.toLocaleString();
+                    
+                    // Calculate addressable market
+                    const addressable = Math.round(tcca * 0.6);
+                    climaxAddressable.textContent = addressable.toLocaleString();
+                    
+                    // Update capture area based on current percentage
+                    const capturePercent = parseInt(climaxCaptureValue.textContent);
+                    const captureArea = Math.round(addressable * (capturePercent / 100));
+                    climaxCapture.textContent = captureArea.toLocaleString();
+                    
+                    // Update units and revenue
+                    const units = Math.ceil(captureArea / 25);
+                    climaxUnits.textContent = units.toLocaleString();
+                    climaxTotalUnits.textContent = units.toLocaleString();
+                    
+                    const revenue = (units * 205000 / 1000000).toFixed(1);
+                    climaxTotalRevenue.textContent = revenue;
+                };
+            }
+            
+            // Update values when capture percentage slider changes
+            if (climaxCaptureSlider) {
+                climaxCaptureSlider.oninput = function() {
+                    const capturePercent = parseInt(this.value);
+                    climaxCaptureValue.textContent = capturePercent + '%';
+                    
+                    // Calculate capture area based on addressable market
+                    const addressable = parseInt(climaxAddressable.textContent.replace(/,/g, ''));
+                    const captureArea = Math.round(addressable * (capturePercent / 100));
+                    climaxCapture.textContent = captureArea.toLocaleString();
+                    
+                    // Update units and revenue
+                    const units = Math.ceil(captureArea / 25);
+                    climaxUnits.textContent = units.toLocaleString();
+                    climaxTotalUnits.textContent = units.toLocaleString();
+                    
+                    const revenue = (units * 205000 / 1000000).toFixed(1);
+                    climaxTotalRevenue.textContent = revenue;
+                };
+            }
+            
+            // Initialize all sliders with default values
+            if (farmSlider) {
+                farmSlider.value = 80;
+                farmSlider.oninput();
+                sahpraSlider.value = 5;
+                sahpraSlider.oninput();
+            }
+            
+            if (homeGrowerSlider) {
+                homeGrowerSlider.value = 300000;
+                homeGrowerSlider.oninput();
+                homeSlider.value = 5;
+                homeSlider.oninput();
+            }
+            
+            if (clubsCountSlider) {
+                clubsCountSlider.value = 700;
+                clubsCountSlider.oninput();
+                clubsSlider.value = 5;
+                clubsSlider.oninput();
+            }
+            
+            if (climaxAreaSlider) {
+                climaxAreaSlider.value = 500000;
+                climaxAreaSlider.oninput();
+                climaxCaptureSlider.value = 5;
+                climaxCaptureSlider.oninput();
+            }
+        }
+    </script>
 </body>
 </html>
